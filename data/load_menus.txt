@@ -1,0 +1,2 @@
+# TODO: Task 1.1
+mongoimport --db restaurant --collection menus --file "/Users/leq/VISA CSF/csf_assessment_template/data/menus.json" --jsonArray

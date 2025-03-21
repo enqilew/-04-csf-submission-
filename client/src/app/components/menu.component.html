@@ -1,0 +1,43 @@
+<div class="row mt-3">
+  <div class="col d-flex justify-content-between align-items-center">
+    <div class="fs-1 fw-bold text-primary">Menu ({{ totalPrice | currency }})</div>
+    <div>
+      <button type="button" class="btn btn-primary" [disabled]="!cartItems.length" (click)="placeOrder()">
+        Place Order ({{ cartItems.length }})
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- each row display a single mene item -->
+<div *ngFor="let item of menuItems" class="row mb-2">
+  <div class="col">
+    <div class="menu-item">
+      <div>
+        <button type="button" class="btn btn-warning" (click)="removeItem(item)">
+          <i class="bi bi-x-square"></i>
+        </button>
+      </div>
+      <div class="menu-details">
+        <div>Name: <span class="fw-bold"> {{ item.name }} </span> </div>
+        <div>Description:
+          <span class="fst-italic">
+            {{ item.description }}
+          </span>
+        </div>
+        <div> Price:
+          <span class="fw-bold">
+            {{ item.price | currency }}
+          </span>
+        </div>
+        <div></div>
+          <div class="text-danger fw-bold">Quantity: {{ getQuantity(item) }}</div>
+      </div>
+      <div class="menu-button-end">
+        <button type="button" class="btn btn-success" (click)="addItem(item)">
+          <i class="bi bi-plus-circle"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
